@@ -16,6 +16,7 @@
       <h1>Mission to Mars</h1>
       <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
     </div>
+
     <div class="container">
       <!-- News -->
       <h3><strong>Latest Mars News</strong></h3>
@@ -28,13 +29,39 @@
           <img src="{{ vacation.featured_image }}" style="max-width:100%; max-height: auto;" alt="Mars Featured Image" alt="Featured Image">
         </div>
         <div class="container col-lg-4">
-          <h3><strong>Facts!</strong></h3>
+          <h3><strong>Facts</strong></h3>
           <div style="font-size: 12px;">
             {{vacation.mars_facts|safe}}
-        </div>
+          </div>
         </div>
       </div>
     </div>
+    
+    <hr class="solid">  
+    <div class="container text-center">
+      <h3><strong>Mars Hemispheres</strong></h3>
+      <div class="row">
+        <div class="container col-lg-6">
+          <img src="{{vacation.hemispheres[0].img_url}}" width="400"> 
+          <h4><b>{{vacation.hemispheres[0].title}}</b></h4>
+        </div> 
+        <div class="container col-lg-6">
+          <img src="{{vacation.hemispheres[1].img_url}}" width="400"> 
+          <h4><b>{{vacation.hemispheres[1].title}}</b></h4>
+        </div> 
+      </div>
+      <div class="row">
+        <div class="container col-lg-6">
+          <img src="{{vacation.hemispheres[2].img_url}}" width="400"> 
+          <h4><b>{{vacation.hemispheres[2].title}}</b></h4>
+        </div> 
+        <div class="container col-lg-6">
+          <img src="{{vacation.hemispheres[3].img_url}}" width="400"> 
+          <h4><b>{{vacation.hemispheres[3].title}}</b></h4>
+        </div> 
+      </div> 
+    </div> 
+    <br>
   </div>
 </div>
 <br>

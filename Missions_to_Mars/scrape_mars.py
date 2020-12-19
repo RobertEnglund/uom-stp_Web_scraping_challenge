@@ -24,6 +24,7 @@ def scrape_info():
     news_title = soup.find('div', class_='bottom_gradient').text
     news_p = soup.find('div', class_='article_teaser_body').text
 
+    # Featured Image
     # Build query URL for JPL featured [Mars] image - use Splinter to scrape
     url = "https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars"
     browser.visit(url)
@@ -35,6 +36,7 @@ def scrape_info():
                         replace(');', '')[1:-1]
     featured_image_url = "https://www.jpl.nasa.gov" + featured_image_url
 
+    # Facts
     # Visit the Mars Facts webpage and use Pandas to scrape the table
     # Three tables returned - use only first table
     results = pd.read_html("https://space-facts.com/mars/")
@@ -43,13 +45,38 @@ def scrape_info():
     facts_df1.set_index('Description', inplace=True)
     facts_html1 = facts_df1.to_html()
 
+    # Hemispheres
+    # Visit the USGS Astrogeology site to obtain high resolution images for each of Mar's hemispheres
+    # Build query URL for page in USGS Astrogeology site that has pics of Mars' hemispheres
+    url = "https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars"
+    browser.visit(url)
+    html = browser.html
+    soup = bs(html, 'html.parser')
+    results = soup.find ('div', class_='result-list')
+    images = results.find_all('div',{'class':'item'})
+
+    hemisphere_image_urls=[]
+
+    for i in images:
+        title = i.find("h3").text
+        title = title.replace("Enhanced", "")
+        end_link = i.find("a")["href"]
+        image_link = "https://astrogeology.usgs.gov/" + end_link    
+        browser.visit(image_link)
+        html_hemispheres = browser.html
+        soup=bs(html_hemispheres, "html.parser")
+        downloads = soup.find("div", class_="downloads")
+        image_url = downloads.find("a")["href"]
+        hemisphere_image_urls.append({"title": title, "img_url": image_url})
+
+
     # Store data in a dictionary
     mars_data = {
-#        "sloth_img": sloth_img,
         "news_title": news_title,
         "news_p": news_p,
         "featured_image": featured_image_url,
-        "mars_facts": facts_html1
+        "mars_facts": facts_html1,
+        "hemispheres": hemisphere_image_urls
     }
 
     # Quite the browser after scraping
