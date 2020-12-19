@@ -23,13 +23,24 @@ def scrape_info():
     news_title = soup.find('div', class_='bottom_gradient').text
     news_p = soup.find('div', class_='article_teaser_body').text
 
+    # Build query URL for JPL featured [Mars] image - use Splinter to scrape
+    url = "https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars"
+    browser.visit(url)
+    html = browser.html
+    soup = bs(html, 'html.parser')
+    # Find the image url for the current Featured Mars Image and remove unneeded control text
+    featured_image_url = soup.find('article', class_='carousel_item')['style'].\
+                        replace('background-image: url(','').\
+                        replace(');', '')[1:-1]
+    featured_image_url = "https://www.jpl.nasa.gov" + featured_image_url
 
 
     # Store data in a dictionary
     mars_data = {
 #        "sloth_img": sloth_img,
         "news_title": news_title,
-        "news_p": news_p
+        "news_p": news_p,
+        "featured_image": featured_image_url
     }
 
     # Quite the browser after scraping

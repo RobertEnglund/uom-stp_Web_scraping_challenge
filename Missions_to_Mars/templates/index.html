@@ -11,16 +11,24 @@
 
 <body>
   <div class="container-fluid">
+
     <div class="jumbotron text-center">
       <h1>Mission to Mars</h1>
       <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
     </div>
-    <h2>Latest Mars News</h2>
-    <h3>{{ vacation.news_title }}</h3>
-    <p>{{ vacation.news_p }}</p>
-    <img src="{{ vacation.sloth_img }}" alt="Sloth">
+    <div class="container">
+      <!-- Mars News -->
+      <h3><strong>Latest Mars News</strong></h3>
+      <p><strong>{{ vacation.news_title }}</strong></p>
+      <p>{{ vacation.news_p }}</p>
+    <div class="container col-lg-8">
+      <div class="row">
+        <h3><strong>Featured Image</strong></h3>
+        <img src="{{ vacation.featured_image }}" style="max-width:100%; max-height: auto;" alt="Mars Featured Image" alt="Featured Image">
+      </div>
+    </div>
   </div>
-  </div>
+</div>
 </body>
 
 </html>
