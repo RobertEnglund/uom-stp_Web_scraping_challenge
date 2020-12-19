@@ -1,5 +1,6 @@
 from splinter import Browser
 from bs4 import BeautifulSoup as bs
+import pandas as pd
 import time
 
 
@@ -34,13 +35,21 @@ def scrape_info():
                         replace(');', '')[1:-1]
     featured_image_url = "https://www.jpl.nasa.gov" + featured_image_url
 
+    # Visit the Mars Facts webpage and use Pandas to scrape the table
+    # Three tables returned - use only first table
+    results = pd.read_html("https://space-facts.com/mars/")
+    facts_df1 = results[0]
+    facts_df1.columns = ['Description', 'Mars']
+    facts_df1.set_index('Description', inplace=True)
+    facts_html1 = facts_df1.to_html()
 
     # Store data in a dictionary
     mars_data = {
 #        "sloth_img": sloth_img,
         "news_title": news_title,
         "news_p": news_p,
-        "featured_image": featured_image_url
+        "featured_image": featured_image_url,
+        "mars_facts": facts_html1
     }
 
     # Quite the browser after scraping

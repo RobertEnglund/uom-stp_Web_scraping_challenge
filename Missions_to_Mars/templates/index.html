@@ -17,18 +17,27 @@
       <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
     </div>
     <div class="container">
-      <!-- Mars News -->
+      <!-- News -->
       <h3><strong>Latest Mars News</strong></h3>
       <p><strong>{{ vacation.news_title }}</strong></p>
       <p>{{ vacation.news_p }}</p>
-    <div class="container col-lg-8">
+      <!-- Featured Image and Facts-->
       <div class="row">
-        <h3><strong>Featured Image</strong></h3>
-        <img src="{{ vacation.featured_image }}" style="max-width:100%; max-height: auto;" alt="Mars Featured Image" alt="Featured Image">
+        <div class="container col-lg-8">
+          <h3><strong>Featured Image</strong></h3>
+          <img src="{{ vacation.featured_image }}" style="max-width:100%; max-height: auto;" alt="Mars Featured Image" alt="Featured Image">
+        </div>
+        <div class="container col-lg-4">
+          <h3><strong>Facts!</strong></h3>
+          <div style="font-size: 12px;">
+            {{vacation.mars_facts|safe}}
+        </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
+<br>
 </body>
 
 </html>
