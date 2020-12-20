@@ -6,8 +6,8 @@
 
 ## Screenshots of final application
 
-![mission1](Images/mission1.PNG)
-![mission2](Images/mission2.PGN)
+![mission1](Images/Mission1.PNG)
+![mission2](Images/Mission2.PNG)
 
 
 In this assignment, you will build a web application that scrapes various websites for data related to the Mission to Mars and displays the information in a single HTML page. The following outlines what you need to do.
@@ -95,9 +95,11 @@ Use MongoDB with Flask templating to create a new HTML page that displays all of
 
 To submit your work to BootCampSpot, create a new GitHub repository and upload the following:
 
-1. The Jupyter Notebook containing the scraping code used. <span style="color: red">(see mission_to_mars.ipynb)</span>
+1. The Jupyter Notebook containing the scraping code used. 
+  ==> See mission_to_mars.ipynb
 
-2. Screenshots of your final application. <span style="color: red">(see top of this page)</span>
+2. Screenshots of your final application.
+  ==> See top of this page
 
 3. Submit the link to your new repository to BootCampSpot.
 
