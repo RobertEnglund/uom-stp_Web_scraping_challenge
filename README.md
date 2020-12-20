@@ -4,11 +4,14 @@
 ### Week 12:  MongoDB, Web Scraping, & Flask
 ### Home work due: 12/19/2020
 
-## Screenshots of final application
+  
+### Screenshots of final application
 
 ![mission1](Images/x.png)
 ![mission2](Images/y.png)
 
+  
+### Assignment
 
 In this assignment, you will build a web application that scrapes various websites for data related to the Mission to Mars and displays the information in a single HTML page. The following outlines what you need to do.
 
