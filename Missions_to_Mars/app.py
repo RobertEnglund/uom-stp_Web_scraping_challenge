@@ -14,7 +14,6 @@ mongo = PyMongo(app, uri="mongodb://localhost:27017/weather_app")
 def home():
 
     # Find one record of data from the mongo database
-    # @TODO: YOUR CODE HERE!
     destination_data = mongo.db.CRWeather.find_one()
 
     # Return template and data
@@ -26,14 +25,10 @@ def home():
 def scrape():
 
     # Run the scrape function and save the results to a variable
-    # @TODO: YOUR CODE HERE!
     CRWeather = mongo.db.CRWeather
     CRWeather_data = scrape_mars.scrape_info()
-    # assuming that ".scrape() is a function and not something that was defined in scrape_costa"
-    # bad assumption ".scrape()" needs to be defined as a "def" 
 
     # Update the Mongo database using update and upsert=True
-    # @TODO: YOUR CODE HERE!
     CRWeather.update({}, CRWeather_data, upsert=True)
 
     # Redirect back to home page
