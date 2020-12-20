@@ -6,8 +6,8 @@
 
 ## Screenshots of final application
 
-![mission1](Images/Mission1.PNG)
-![mission2](Images/Mission2.PNG)
+![mission1](Images/mission1.png)
+![mission2](Images/mission2.png)
 
 
 In this assignment, you will build a web application that scrapes various websites for data related to the Mission to Mars and displays the information in a single HTML page. The following outlines what you need to do.
